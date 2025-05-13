@@ -36,7 +36,7 @@ pdfborder={0 0 0}       % Remove borders completely
 \usepackage{diagbox}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage[toc, acronym]{glossaries} % 
+\usepackage[toc, acronym]{glossaries}
 \makeglossaries
 
 % This is to remove page numbers in blank pages, which are inserted so that the new chapters start on the right side
@@ -133,7 +133,6 @@ pdfborder={0 0 0}       % Remove borders completely
 
 \begin{document}
 	
-	% Savvinos: I changed the title according to your suggestion. Sounds good for now!
 	% Title Page
 	\begin{titlepage}
 		\centering
@@ -190,7 +189,6 @@ pdfborder={0 0 0}       % Remove borders completely
 	\fancyhead[RO]{\small\thepage} % Restore left header for even pages (if needed)
 	\fancyhead[LE]{\small\thepage} % Restore left header for odd pages (if needed)
 	
-	% Gerard O'Reilly: It is a little segmented because you were aggregating the existing abstracts from past papers, but otherwise it is fine I think
 	% Abstract
 	\oldchapter*{Abstract}
 	\addcontentsline{toc}{chapter}{Abstract}
@@ -215,10 +213,8 @@ pdfborder={0 0 0}       % Remove borders completely
 
 	\newpage
 	
-	%\hypertarget{toc}{}% set the hypertarget
-	%\bookmark[dest=toc,level=chapter]{\contentsname}% add the bookmark
 	
-	\glsunsetall  % Disable all expansions of abbreviations and symbols
+	\glsunsetall  % Disable all expansions of abbreviations and symbols in the tables of contents, figures, and tables
 	
 	% Table of Contents
 	\phantomsection   % Creates an invisible anchor for hyperlinking
@@ -251,17 +247,15 @@ pdfborder={0 0 0}       % Remove borders completely
 	\vspace{-1cm} % Adjust the value as needed
 	% Prevents LaTeX from inserting a new chapter
 	\renewcommand*{\glossarysection}[2][]{\section*{#2}}
-%	\glsaddall
+
 	\printglossary[type=\acronymtype, title={}, toctitle={}, style=long, nogroupskip, nonumberlist]
 	
-%	% Set the vertical space between rows
-%	\renewcommand{\arraystretch}{1.5} % Adjust this value for desired spacing
 	
 	\section*{List of symbols}
 	
 	\vspace{-1cm} % Adjust the value as needed
 	\printglossary[title={}, toctitle={}, style=long, nogroupskip, nonumberlist]
-%	\printglossary[title={List of Symbols}]
+
 	
 	
 	\renewcommand{\arraystretch}{1.2} % Reset to default (actually a little higher for table clarity)
@@ -277,7 +271,6 @@ pdfborder={0 0 0}       % Remove borders completely
 	\fancyhead[LE]{\small\thepage}  % Left header on odd pages: Page number
 	
 	% Switch to Arabic numerals for Chapter 1 onwards
-	
 	\pagenumbering{arabic}
 	
 	 \input{chapter_1} % Include chapter_1.tex
@@ -289,7 +282,6 @@ pdfborder={0 0 0}       % Remove borders completely
 	\addcontentsline{toc}{chapter}{References}
 	\thispagestyle{empty}
 	
-	%\printbibliography[heading=none]
 	\begin{refcontext}[sorting=nyt]
 		\printbibliography[heading=none]
 	\end{refcontext}
